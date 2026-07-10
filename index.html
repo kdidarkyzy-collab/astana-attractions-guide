@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Красивый гид по достопримечательностям Астаны: места, маршруты и впечатления." />
+  <title>Открой Астану — путеводитель по городу</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
+  <style>
+    :root { --ink:#10233e; --blue:#1d5dbe; --ice:#eff8ff; --gold:#f5bd4f; --muted:#67809e; }
+    * { box-sizing:border-box; } html { scroll-behavior:smooth; } body { margin:0; font-family:Manrope,Arial,sans-serif; color:var(--ink); background:#fff; }
+    a { color:inherit; text-decoration:none; } .wrap { width:min(1180px,calc(100% - 40px)); margin:auto; }
+    .hero { min-height:745px; color:white; position:relative; overflow:hidden; background:linear-gradient(115deg,rgba(4,21,48,.83),rgba(12,65,132,.35)),url('https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1800&q=85') center/cover; }
+    .hero:after { content:""; position:absolute; inset:auto -15% -230px; height:450px; background:white; border-radius:50% 50% 0 0; transform:rotate(-3deg); }
+    nav { position:relative; z-index:2; display:flex; justify-content:space-between; align-items:center; padding:30px 0; }
+    .logo { font-family:'Playfair Display',serif; font-size:26px; font-weight:700; } .logo span { color:var(--gold); }
+    .navlinks { display:flex; gap:30px; font-size:14px; font-weight:700; } .navlinks a:hover { color:var(--gold); }
+    .hero-content { position:relative; z-index:1; padding:115px 0 170px; max-width:720px; }
+    .eyebrow { letter-spacing:.16em; text-transform:uppercase; font-size:11px; font-weight:800; color:#f9ce73; }
+    h1 { font:700 clamp(48px,7vw,84px)/.99 'Playfair Display',serif; margin:20px 0 22px; letter-spacing:-.04em; }
+    .hero p { max-width:530px; color:#dbeaff; line-height:1.7; font-size:17px; }
+    .search { display:flex; gap:10px; margin-top:36px; background:#fff; border-radius:12px; padding:8px; width:min(560px,100%); box-shadow:0 15px 40px #06142d55; }
+    .search input { border:0; outline:0; padding:12px 15px; min-width:0; flex:1; font:500 14px Manrope; } .search button,.route-btn { border:0; color:white; cursor:pointer; border-radius:8px; background:#1762c2; padding:13px 22px; font:700 13px Manrope; }
+    .stats { display:flex; gap:38px; margin-top:58px; } .stats b { display:block; font-size:24px; } .stats span { color:#c3d8f1; font-size:12px; }
+    section { padding:95px 0; } .section-top { display:flex; align-items:end; justify-content:space-between; margin-bottom:35px; gap:20px; }
+    h2 { font:700 clamp(32px,4vw,50px)/1.1 'Playfair Display',serif; letter-spacing:-.035em; margin:8px 0 0; } .link { color:#1762c2; font-weight:800; font-size:13px; white-space:nowrap; }
+    .categories { display:grid; grid-template-columns:repeat(5,1fr); gap:14px; } .category { min-height:137px; padding:21px; border-radius:15px; color:white; display:flex; flex-direction:column; justify-content:end; font-weight:800; background-size:cover; background-position:center; position:relative; overflow:hidden; }
+    .category:before { content:""; position:absolute; inset:0; background:linear-gradient(transparent,#0d2449cf); } .category span { z-index:1; font-size:13px; } .category i { z-index:1; font-style:normal; font-size:24px; margin-bottom:auto; }
+    .places { background:var(--ice); } .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; } .card { background:white; overflow:hidden; border-radius:15px; box-shadow:0 10px 30px rgba(32,84,140,.08); transition:.25s; } .card:hover { transform:translateY(-6px); box-shadow:0 18px 38px rgba(32,84,140,.16); }
+    .card img { display:block; width:100%; height:235px; object-fit:cover; } .card-body { padding:20px; } .tag { color:#1762c2; font-size:10px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; } h3 { margin:8px 0; font:700 23px 'Playfair Display',serif; } .card p { color:var(--muted); margin:0; font-size:13px; line-height:1.65; } .place-info { display:flex; gap:15px; color:#557496; margin-top:18px; font-size:11px; font-weight:700; }
+    .route { padding:90px 0; color:white; background:linear-gradient(90deg,#112c50db,#112c5090),url('https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1800&q=80') center/cover; } .route-grid { display:grid; grid-template-columns:1.1fr .9fr; gap:60px; align-items:center; } .route p { color:#d8e7f7; line-height:1.75; max-width:500px; } .route-list { background:#ffffff16; border:1px solid #ffffff30; border-radius:16px; padding:20px 25px; backdrop-filter:blur(6px); } .stop { padding:15px 0; display:flex; gap:16px; border-bottom:1px solid #ffffff24; font-size:14px; font-weight:700; } .stop:last-child { border:0; } .number { color:var(--gold); font-family:'Playfair Display'; font-size:20px; }
+    .footer { background:#0e203a; color:#c4d4e7; padding:45px 0; font-size:12px; } .footer-row { display:flex; justify-content:space-between; align-items:center; gap:20px; } .footer .logo { color:white; }
+    @media (max-width:800px) { .hero { min-height:690px; } .navlinks { display:none; } .hero-content { padding-top:90px; } .categories { grid-template-columns:repeat(2,1fr); } .categories .category:last-child { grid-column:span 2; } .grid { grid-template-columns:1fr; } .route-grid { grid-template-columns:1fr; gap:30px; } section { padding:65px 0; } .stats { gap:20px; } .footer-row { flex-direction:column; align-items:flex-start; } }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <nav class="wrap"><a class="logo" href="#top">Открой <span>Астану</span></a><div class="navlinks"><a href="#places">Места</a><a href="#routes">Маршруты</a><a href="#guide">О городе</a></div><a class="route-btn" href="#routes">Выбрать маршрут</a></nav>
+    <main id="top" class="wrap hero-content"><div class="eyebrow">Столица Казахстана</div><h1>Город, который смотрит в будущее</h1><p>От монументальной архитектуры до тихих парков у Есиля — собрали самые впечатляющие места Астаны в одном красивом путеводителе.</p><form class="search" onsubmit="event.preventDefault(); document.querySelector('#places').scrollIntoView({behavior:'smooth'})"><input aria-label="Поиск места" placeholder="Что хотите увидеть? Например, Байтерек" /><button>Найти место</button></form><div class="stats"><div><b>20+</b><span>мест для открытия</span></div><div><b>6</b><span>готовых маршрутов</span></div><div><b>1 город</b><span>тысячи впечатлений</span></div></div></main>
+  </header>
+  <section id="guide" class="wrap"><div class="section-top"><div><div class="eyebrow" style="color:#1762c2">Исследуйте по-своему</div><h2>Ваш день в Астане</h2></div><a class="link" href="#places">Все категории →</a></div><div class="categories">
+    <a class="category" href="#places" style="background-image:url('https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=600&q=80')"><i>⌁</i><span>Архитектура</span></a>
+    <a class="category" href="#places" style="background-image:url('https://images.unsplash.com/photo-1564399579883-451a5d44ec08?auto=format&fit=crop&w=600&q=80')"><i>◌</i><span>Музеи и культура</span></a>
+    <a class="category" href="#places" style="background-image:url('https://images.unsplash.com/photo-1473445361085-b9a07f55608b?auto=format&fit=crop&w=600&q=80')"><i>⌇</i><span>Парки и прогулки</span></a>
+    <a class="category" href="#places" style="background-image:url('https://images.unsplash.com/photo-1518391846015-55a9cc003b25?auto=format&fit=crop&w=600&q=80')"><i>✦</i><span>С детьми</span></a>
+    <a class="category" href="#places" style="background-image:url('https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=600&q=80')"><i>◐</i><span>Вечерний город</span></a>
+  </div></section>
+  <section id="places" class="places"><div class="wrap"><div class="section-top"><div><div class="eyebrow" style="color:#1762c2">Начните отсюда</div><h2>Символы современной Астаны</h2></div><a class="link" href="#top">Показать на карте →</a></div><div class="grid">
+    <article class="card"><img src="https://images.unsplash.com/photo-1534274988757-a28bf1a57c17?auto=format&fit=crop&w=800&q=80" alt="Современная башня" /><div class="card-body"><div class="tag">Архитектура</div><h3>Байтерек</h3><p>Главный символ столицы и одна из лучших обзорных точек города.</p><div class="place-info"><span>◉ Левый берег</span><span>◷ 1–2 часа</span></div></div></article>
+    <article class="card"><img src="https://images.unsplash.com/photo-1583864697784-a0efc8379f70?auto=format&fit=crop&w=800&q=80" alt="Современное здание" /><div class="card-body"><div class="tag">Культура</div><h3>Дворец мира и согласия</h3><p>Стеклянная пирамида, где архитектура встречается с искусством.</p><div class="place-info"><span>◉ Площадь Независимости</span><span>◷ 1 час</span></div></div></article>
+    <article class="card"><img src="https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?auto=format&fit=crop&w=800&q=80" alt="Городской пейзаж" /><div class="card-body"><div class="tag">Прогулка</div><h3>Набережная Есиля</h3><p>Просторный маршрут для неспешного вечера и красивых кадров.</p><div class="place-info"><span>◉ Центральный район</span><span>◷ 2 часа</span></div></div></article>
+  </div></div></section>
+  <section id="routes" class="route"><div class="wrap route-grid"><div><div class="eyebrow">Готовый маршрут</div><h2>Астана за один день</h2><p>Идеальный первый маршрут: знаковые виды, современная архитектура, неспешная прогулка и время на кофе с панорамой города.</p><button class="route-btn">Открыть маршрут</button></div><div class="route-list"><div class="stop"><span class="number">01</span><span>Байтерек — утренний вид на город</span></div><div class="stop"><span class="number">02</span><span>Бульвар Нуржол и поющий фонтан</span></div><div class="stop"><span class="number">03</span><span>Национальный музей Казахстана</span></div><div class="stop"><span class="number">04</span><span>Дворец мира и согласия на закате</span></div></div></div></section>
+  <footer class="footer"><div class="wrap footer-row"><a class="logo" href="#top">Открой <span>Астану</span></a><span>Ваш личный гид по столице Казахстана</span><span>© 2026</span></div></footer>
+</body>
+</html>
